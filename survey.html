@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Land Information Form</title>
+    <style>
+        body {
+            background-color: #e6ffe6; /* Light green background */
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333333;
+        }
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-item label {
+            margin-bottom: 5px;
+            color: #333333;
+        }
+        .form-item input,
+        .form-item select {
+            padding: 8px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .form-actions input {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-actions input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .form-actions input[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Land Information Form</h2>
+        <form id="landInfoForm" action="http://localhost:8008/Survey" method="POST">
+            <div class="form-group">
+                <div class="form-item">
+                    <label for="surveyNo">Survey No:</label>
+                    <input type="text" id="surveyNo" name="surveyNo" required>
+                </div>
+                <div class="form-item">
+                    <label for="khattaNumber">Khatta Number:</label>
+                    <input type="text" id="khattaNumber" name="khattaNumber" required>
+                </div>
+                <div class="form-item">
+                    <label for="district">District:</label>
+                    <input type="text" id="district" name="district" required>
+                </div>
+                <div class="form-item">
+                    <label for="pattadarName">Pattadar Name:</label>
+                    <input type="text" id="pattadarName" name="pattadarName" required>
+                </div>
+                <div class="form-item">
+                    <label for="mandal">Mandal:</label>
+                    <input type="text" id="mandal" name="mandal" required>
+                </div>
+                <div class="form-item">
+                    <label for="fatherHusbandName">Father/Husband Name:</label>
+                    <input type="text" id="fatherHusbandName" name="fatherHusbandName" required>
+                </div>
+                <div class="form-item">
+                    <label for="village">Village:</label>
+                    <input type="text" id="village" name="village" required>
+                </div>
+                <div class="form-item">
+                    <label for="caste">Caste:</label>
+                    <input type="text" id="caste" name="caste" required>
+                </div>
+                <div class="form-item">
+                    <label for="totalLand">Total Land in Acres:</label>
+                    <input type="text" id="totalLand" name="totalLand" required>
+                </div>
+                <div class="form-item">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="natureOfLand">Nature of Land:</label>
+                    <select id="natureOfLand" name="natureOfLand" required>
+                        <option value="agricultural">Agricultural</option>
+                        <option value="residential">Residential</option>
+                        <option value="commercial">Commercial</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="classificationOfLand">Classification of Land:</label>
+                    <select id="classificationOfLand" name="classificationOfLand" required>
+                        <option value="irrigated">Irrigated</option>
+                        <option value="nonIrrigated">Non-Irrigated</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="marketValue">Market Value of Land:</label>
+                    <input type="text" id="marketValue" name="marketValue" required>
+                </div>
+                <div class="form-item">
+                    <label for="landStatus">Land Status:</label>
+                    <select id="landStatus" name="landStatus" required>
+                        <option value="owned">Owned</option>
+                        <option value="leased">Leased</option>
+                        <option value="disputed">Disputed</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="landType">Land Type:</label>
+                    <select id="landType" name="landType" required>
+                        <option value="patta">Patta</option>
+                        <option value="assigned">Assigned</option>
+                        <option value="government">Government</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="ekycStatus">eKYC Status:</label>
+                    <select id="ekycStatus" name="ekycStatus" required>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Optional: Client-side validation (basic example)
+        document.getElementById('landInfoForm').addEventListener('submit', function(event) {
+            const form = event.target;
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    </script>
+</body>
+</html>
